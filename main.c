@@ -1,18 +1,18 @@
 // Write your code in this file
- #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
-#define ROLL() ((rand() % 6) + 1)
-
 int main() {
-int counts[6] = {0}, sum = 0;
+int rolls[100];
+int counts[6] = {0};
+int sum = 0;
 
-srand(1);
+srand(1); 
 
 for (int i = 0; i < 100; i++) {
-int roll = ROLL();
-counts[roll - 1]++;
-sum += roll;
+rolls[i] = (rand() % 6) + 1; 
+counts[rolls[i] - 1]++; 
+sum += rolls[i]; 
 }
 
 for (int i = 0; i < 6; i++) {
