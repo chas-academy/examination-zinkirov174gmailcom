@@ -4,7 +4,7 @@
 
 #define NUM_ELEVER 5
 #define NUM_PROV 13
-#define NAMN_MAX 11  // 10 tecken + null-terminator
+#define NAMN_MAX 11 
 
 typedef struct {
     char namn[NAMN_MAX];
@@ -12,7 +12,7 @@ typedef struct {
     float medel;
 } Elev;
 
-// Funktion för att konvertera första bokstaven till versal
+
 void formatNamn(char* namn) {
     namn[0] = toupper(namn[0]);
     for (int i = 1; namn[i]; i++) {
@@ -20,7 +20,7 @@ void formatNamn(char* namn) {
     }
 }
 
-// Funktion för att beräkna medelpoäng
+
 float beraknaMedel(int prov[], int antal) {
     int summa = 0;
     for (int i = 0; i < antal; i++) {
@@ -34,7 +34,6 @@ int main() {
     float totalMedel = 0;
     int i, j;
 
-    // Läser in data
     for (i = 0; i < NUM_ELEVER; i++) {
         scanf("%s", elever[i].namn);
         for (j = 0; j < NUM_PROV; j++) {
@@ -44,7 +43,7 @@ int main() {
         totalMedel += elever[i].medel;
     }
 
-    // Steg 1 – Hitta elev med högst medelpoäng
+    
     int indexMax = 0;
     for (i = 1; i < NUM_ELEVER; i++) {
         if (elever[i].medel > elever[indexMax].medel) {
@@ -55,7 +54,7 @@ int main() {
     formatNamn(elever[indexMax].namn);
     printf("%s\n", elever[indexMax].namn);
 
-    // Steg 2 – Hitta elever under total medel
+    
     float medelAlla = totalMedel / NUM_ELEVER;
     for (i = 0; i < NUM_ELEVER; i++) {
         if (elever[i].medel < medelAlla) {
